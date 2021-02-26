@@ -10,6 +10,15 @@ public class ControllerScript : MonoBehaviour
     float windAcceleration = 20f;
     float windBoundary = 40f;
 
+    LineRenderer lineRenderer;
+    Vector3[] linePos;
+
+    private void Awake()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +68,12 @@ public class ControllerScript : MonoBehaviour
         camera.transform.position = (bike.transform.position + dragon.transform.position) / 2;
         camera.transform.position = new Vector3(camera.transform.position.x, 100f, camera.transform.position.z);
 
-        
+        linePos = new Vector3[2];
+
+        linePos[0] = dragon.transform.position;
+        linePos[1] = bike.transform.position;
+
+        lineRenderer.SetPositions(linePos);
 
     }
 
