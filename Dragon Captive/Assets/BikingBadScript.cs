@@ -75,7 +75,6 @@ public class BikingBadScript : MonoBehaviour
             else
             {
                 switchFrame += Time.deltaTime;
-                Debug.Log(switchFrame);
 
             }
 

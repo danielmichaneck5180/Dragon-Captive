@@ -7,15 +7,19 @@ public class ControllerScript : MonoBehaviour
     Vector3 objectDistance = new Vector3(0f, 0f, 0f);
     Vector3 windflow = new Vector3(0f, 0f, 0f);
 
-    float windAcceleration = 20f;
+    float windAcceleration = 50f;
     float windBoundary = 40f;
 
     LineRenderer lineRenderer;
     Vector3[] linePos;
 
+    LineRenderer windLineRenderer;
+    Vector3[] windPos;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        windLineRenderer = transform.Find("Wind Direction Pointer").gameObject.GetComponent<LineRenderer>();
 
     }
 
@@ -74,6 +78,15 @@ public class ControllerScript : MonoBehaviour
         linePos[1] = bike.transform.position;
 
         lineRenderer.SetPositions(linePos);
+
+        windPos = new Vector3[2];
+
+        windPos[0] = new Vector3(60f + camera.transform.position.x,
+            10f,
+            30f + camera.transform.position.z);
+        windPos[1] = windPos[0] + windflow / 4;
+
+        windLineRenderer.SetPositions(windPos);
 
     }
 
