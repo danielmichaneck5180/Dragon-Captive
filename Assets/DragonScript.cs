@@ -7,6 +7,12 @@ public class DragonScript : MonoBehaviour
     Vector3 wind = new Vector3(0f, 0f, 0f);
     Vector3 drag = new Vector3(0f, 0f, 0f);
     Vector3 velocity = new Vector3(0f, 0f, 0f);
+    GameObject kite;
+
+    private void Awake()
+    {
+        kite = transform.Find("KiteMaster").gameObject;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +26,7 @@ public class DragonScript : MonoBehaviour
         velocity = drag + wind;
 
         transform.Translate(velocity * Time.deltaTime);
-
+        kite.transform.LookAt(transform.position - velocity);
     }
 
     public void SetDrag(Vector3 newDrag)

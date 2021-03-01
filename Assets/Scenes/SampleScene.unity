@@ -1325,7 +1325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114686797100864714, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114686797100864714, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1367,6 +1367,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 114686797100864715, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
+      propertyPath: m_TagString
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 673960974120374920, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 673960974120374920, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -4689008602499963454, guid: 33cbad0a9fd412a438ef7842152350a0, type: 3}
     - target: {fileID: 1418291580668390601, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
       propertyPath: bike
       value: 
@@ -1407,6 +1419,10 @@ PrefabInstance:
       propertyPath: maxZ
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 1418291580668390601, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
+      propertyPath: birdReference
+      value: 
+      objectReference: {fileID: 1273546201822734442, guid: 27019f598e0ec6646920380a9cc8d478, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 865a5c5bb51e59440b512c9f8157e173, type: 3}
 --- !u!1001 &6250709842944263887
@@ -1459,18 +1475,6 @@ PrefabInstance:
     - target: {fileID: 6250709844498797864, guid: 0566128ec4003ff448dea2097068c638, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6250709844498797864, guid: 0566128ec4003ff448dea2097068c638, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6250709844498797864, guid: 0566128ec4003ff448dea2097068c638, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6250709844498797864, guid: 0566128ec4003ff448dea2097068c638, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6250709844498797865, guid: 0566128ec4003ff448dea2097068c638, type: 3}
       propertyPath: m_Name
