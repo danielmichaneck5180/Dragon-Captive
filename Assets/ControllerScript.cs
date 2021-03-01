@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControllerScript : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class ControllerScript : MonoBehaviour
 
     public float cameraHeight = 100f;
     public float minX, minZ, maxX, maxZ;
-    float windAcceleration = 50f;
-    float windBoundary = 40f;
+    float windAcceleration = 120f;
+    float windBoundary = 80f;
     float timer = 60;
     float birdTimer = 5f;
 
@@ -42,6 +43,12 @@ public class ControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+
+        }
+
         if (timer > 0f)
         {
             timer -= Time.deltaTime;
