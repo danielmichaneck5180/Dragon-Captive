@@ -3,7 +3,13 @@ guid: c54968261beeea141be8f085b48dbdf3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bike: {instanceID: 0}
+  - dragon: {instanceID: 0}
+  - camera: {instanceID: 0}
+  - timerText: {instanceID: 0}
+  - endText: {instanceID: 0}
+  - birdReference: {fileID: 1273546201822734442, guid: 27019f598e0ec6646920380a9cc8d478, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
