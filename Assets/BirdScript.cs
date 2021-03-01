@@ -24,7 +24,7 @@ public class BirdScript : MonoBehaviour
 
         startVelocity = rb.velocity.normalized * speed;
         rb.AddForce(startVelocity);
-        transform.eulerAngles = startVelocity;
+        transform.LookAt(new Vector3(0f, 0f, 0f));
         Debug.Log(rb.velocity);
 
         GameObject.FindGameObjectWithTag("GameController").GetComponent<ControllerScript>().AddBird(gameObject);
