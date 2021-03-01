@@ -3,14 +3,15 @@ using UnityEngine.UI;
 
 public class ControllerScript : MonoBehaviour
 {
-    public GameObject bike, dragon, camera, timerText, endText;
+    public GameObject bike, dragon, camera, timerText, endText, birdReference;
 
     Vector3 objectDistance = new Vector3(0f, 0f, 0f);
     Vector3 windflow = new Vector3(0f, 0f, 0f);
 
-    float windAcceleration = 50f;
-    float windBoundary = 40f;
-    float timer = 60;
+    float windAcceleration = 100f;
+    float windBoundary = 50f;
+    float timer = 60f;
+    float birdTimer = 5f;
 
     bool end = false, dragonWin = false, bikeWin = false;
 
@@ -66,6 +67,34 @@ public class ControllerScript : MonoBehaviour
         }
         else
         {
+            if (birdTimer > 0f)
+            {
+                birdTimer -= Time.deltaTime;
+
+            }
+            else
+            {
+                birdTimer = 5f;
+                GameObject birb = Instantiate(birdReference, gameObject.transform);
+                birb.transform.Translate(new Vector3(-150f + camera.transform.position.x,
+                    0f,
+                    -150f + camera.transform.position.z));
+                birb = Instantiate(birdReference, gameObject.transform);
+                birb.transform.Translate(new Vector3(150f + camera.transform.position.x,
+                    0f,
+                    -150f + camera.transform.position.z));
+                birb = Instantiate(birdReference, gameObject.transform);
+                birb.transform.Translate(new Vector3(-150f + camera.transform.position.x,
+                    0f,
+                    150f + camera.transform.position.z));
+                birb = Instantiate(birdReference, gameObject.transform);
+                birb.transform.Translate(new Vector3(150f + camera.transform.position.x
+                    ,
+                    0f,
+                    150f + camera.transform.position.z));
+
+            }
+
             objectDistance = bike.transform.position - dragon.transform.position;
             objectDistance.y = 0f;
 

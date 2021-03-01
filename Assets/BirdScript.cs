@@ -6,7 +6,7 @@ public class BirdScript : MonoBehaviour
 {
     Rigidbody rb;
     Vector3 startVelocity;
-    const float speed = 10f;
+    const float speed = 15f;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class BirdScript : MonoBehaviour
 
         startVelocity = rb.velocity.normalized * speed;
         rb.AddForce(startVelocity);
-        transform.LookAt(-transform.position);
+        transform.LookAt(transform.position + startVelocity);
         Debug.Log(rb.velocity);
 
         GameObject.FindGameObjectWithTag("GameController").GetComponent<ControllerScript>().AddBird(gameObject);
@@ -49,7 +49,7 @@ public class BirdScript : MonoBehaviour
 
     public void AddWind(Vector3 wind)
     {
-        rb.velocity = startVelocity + wind / (speed);
+        rb.velocity = startVelocity + wind / (speed / 2);
 
     }
 
