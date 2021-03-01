@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ControllerScript : MonoBehaviour
 {
-    public GameObject bike, dragon, camera;
+    public GameObject bike, dragon, camera, timerText;
 
     Vector3 objectDistance = new Vector3(0f, 0f, 0f);
     Vector3 windflow = new Vector3(0f, 0f, 0f);
 
     float windAcceleration = 50f;
     float windBoundary = 40f;
+    float timer = 60;
 
     LineRenderer lineRenderer;
     Vector3[] linePos;
@@ -16,10 +18,13 @@ public class ControllerScript : MonoBehaviour
     LineRenderer windLineRenderer;
     Vector3[] windPos;
 
+    GameObject[] birds;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
         windLineRenderer = transform.Find("Wind Direction Pointer").gameObject.GetComponent<LineRenderer>();
+        birds = new GameObject[255];
 
     }
 
@@ -32,6 +37,13 @@ public class ControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+            timerText.GetComponent<Text>().text = "Time Remaining: " + Mathf.Ceil(timer).ToString();
+
+        }
+
         objectDistance = bike.transform.position - dragon.transform.position;
         objectDistance.y = 0f;
 
@@ -87,6 +99,37 @@ public class ControllerScript : MonoBehaviour
         windPos[1] = windPos[0] + windflow / 4;
 
         windLineRenderer.SetPositions(windPos);
+
+        for (int i = 0; i < birds.Length; i++)
+        {
+            if (birds[i] != null)
+            {
+                birds[i].GetComponent<BirdScript>().AddWind(windflow);
+
+            }
+
+        }
+
+    }
+
+    public void DragonHit()
+    {
+        Debug.Log("DRAGON IS HIT! :O");
+
+    }
+
+    public void AddBird(GameObject bird)
+    {
+        for (int i = 0; i < birds.Length; i++)
+        {
+            if (birds[i] == null)
+            {
+                birds[i] = bird;
+                break;
+
+            }
+
+        }
 
     }
 
