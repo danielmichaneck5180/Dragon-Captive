@@ -5,6 +5,7 @@ using UnityEngine;
 public class BirdScript : MonoBehaviour
 {
     Rigidbody rb;
+    Vector3 startVelocity;
 
     private void Awake()
     {
@@ -20,8 +21,11 @@ public class BirdScript : MonoBehaviour
             0f,
             Random.Range(-45f, 45f) * Mathf.Sign(transform.position.z));
 
-        rb.velocity = rb.velocity.normalized * 1f;
+        startVelocity = rb.velocity.normalized * 1f;
+        rb.AddForce(startVelocity);
         Debug.Log(rb.velocity);
+
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<ControllerScript>().AddBird(gameObject);
 
     }
 
@@ -30,4 +34,21 @@ public class BirdScript : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Dragon")
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<ControllerScript>().DragonHit();
+
+        }
+
+    }
+
+    public void AddWind(Vector3 wind)
+    {
+        rb.velocity = startVelocity + wind;
+
+    }
+
 }
