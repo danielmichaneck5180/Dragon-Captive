@@ -8,6 +8,8 @@ public class ControllerScript : MonoBehaviour
     Vector3 objectDistance = new Vector3(0f, 0f, 0f);
     Vector3 windflow = new Vector3(0f, 0f, 0f);
 
+    public float cameraHeight = 100f;
+    public float minX, minZ, maxX, maxZ;
     float windAcceleration = 50f;
     float windBoundary = 40f;
     float timer = 60;
@@ -104,7 +106,10 @@ public class ControllerScript : MonoBehaviour
             dragon.GetComponent<DragonScript>().SetWind(windflow);
 
             camera.transform.position = (bike.transform.position + dragon.transform.position) / 2;
-            camera.transform.position = new Vector3(camera.transform.position.x, 100f, camera.transform.position.z);
+            camera.transform.position = new Vector3(camera.transform.position.x, cameraHeight, camera.transform.position.z);
+            camera.transform.position = new Vector3(Mathf.Clamp(camera.transform.position.x, minX, maxX),
+            cameraHeight,
+            Mathf.Clamp(camera.transform.position.z, minZ, maxZ));
 
             linePos = new Vector3[2];
 

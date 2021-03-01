@@ -5,7 +5,9 @@ using UnityEngine;
 public class BikingBadScript : MonoBehaviour
 {
     GameObject spriteOne, spriteTwo, spriteTransform;
-    float speedMultiplier = 20f, switchFrame = 0;
+    public float minX, minZ, maxX, maxZ;
+    public float speedMultiplier = 20f;
+    float switchFrame = 0;
     bool isOne = true;
 
     private void Awake()
@@ -49,6 +51,9 @@ public class BikingBadScript : MonoBehaviour
         }
 
         transform.Translate(new Vector3(x, 0, y) * Time.deltaTime * speedMultiplier);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX), 
+            transform.position.y, 
+            Mathf.Clamp(transform.position.z, minZ, maxZ));
 
         if (x != 0 || y != 0)
         {

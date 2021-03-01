@@ -123,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7982418179677092011}
-  - component: {fileID: 7582643586962415068}
+  - component: {fileID: 1539007500}
   m_Layer: 0
   m_Name: Biking Bad
   m_TagString: Untagged
@@ -146,7 +146,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7582643586962415068
+--- !u!114 &1539007500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4254793b78da61a46b71e7959a0916ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minX: -200
+  minZ: -200
+  maxX: 200
+  maxZ: 200
 --- !u!1 &6380686837573857957
 GameObject:
   m_ObjectHideFlags: 0
